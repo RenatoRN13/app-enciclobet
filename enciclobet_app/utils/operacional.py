@@ -94,6 +94,7 @@ class Operacional:
             if j[casaOuVisitante] != equipe:
                 continue
 
+            # if()
             numJogos+=1
             flagMarcouPrimeiro = False
             flagSofreuPrimeiro = False
@@ -128,7 +129,7 @@ class Operacional:
         result = Infos.Result()
 
         result.equipe = equipe
-        
+
         result.marcouPrimeiroNoHT.valor = marcouPrimeiroNoHT
         result.marcouPrimeiroNoHT.porcentagem = marcouPrimeiroNoHT / numJogos
         result.marcouPrimeiroNoHT.oddJusta = 1 / (marcouPrimeiroNoHT / numJogos ) if marcouPrimeiroNoHT != 0 else 0
@@ -234,18 +235,12 @@ class Operacional:
                                                         })
 
         infoResult = Infos()
-        resultCasa = {}
-        resultVisitante = {}
         if filtros['home'] != '':
             infoResult.resultCasa = Operacional.getInfoTime(filtros['home'], 'casa', jogos) # vasco, casa, listaJogos
         if filtros['away'] != '':
             infoResult.resultVisitante = Operacional.getInfoTime(filtros['away'], 'visitante', jogos) # vasco, visitante, listaJogos
 
-        result = {
-            'resultCasa': resultCasa,
-            'resultVisitante': resultVisitante,
-        }
-
+        # print(infoResult.resultVisitante)
         return infoResult
 
         

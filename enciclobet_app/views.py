@@ -22,7 +22,7 @@ def frequenciaMovimento(request):
     return render(request, 'paginas/frequencia-movimento.html', constantes)
 
 def populaBase(request):
-    # PopulaBase.start()
+    PopulaBase.start()
     return render(request, 'paginas/home.html')
 
 
@@ -37,18 +37,15 @@ def equipe(request):
                 'home': casa, 
                 'away': visitante, 
                 'league': '', 
-                'season': '2023'
+                'season': '2023/2024'
             }
 
-    # infoDaBase = Operacional.infoBackFavorito1T(filtros)
-
     infoParaHTML = Infos()
-
-    # infoParaHTML.resultCasa = infoDaBase['resultCasa']
-    # infoParaHTML.resultVisitante = infoDaBase['resultVisitante']
 
     infos = {
         'infos': Operacional.infoBackFavorito1T(filtros)
     }
+
+    print(infos['infos'].resultCasa)
 
     return render(request, 'paginas/info-equipes.html', infos)
