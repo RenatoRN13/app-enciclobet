@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <title>Enciclobet</title>
+  </head>
+  <body>
+
+    <nav style="background-color: aquamarine !important;" class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1">Ta nascendo!</span>
+        </div>
+    </nav>
+
+    <div class="row">
+      <div class="table-responsive col-md-6">
+        <h2>{{ infos.resultCasa.equipe }} - {{ infos.resultCasa.numJogos }} jogos - {{ infos.resultCasa.forma }}</h2>
+        <table class="table table-striped">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Info</th>
+              <th scope="col">Valor</th>
+              <th scope="col">%</th>
+              <th scope="col">Odd Justa</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Abriu placar no HT</td>
+              <td>{{ infos.resultCasa.marcouPrimeiroNoHT.valor }}</td>
+              <td>{{ infos.resultCasa.marcouPrimeiroNoHT.porcentagem }}</td>
+              <td>{{ infos.resultCasa.marcouPrimeiroNoHT.oddJusta }}</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Abriu placar no FT</td>
+              <td>{{ infos.resultCasa.marcouPrimeiro.valor }}</td>
+              <td>{{ infos.resultCasa.marcouPrimeiro.porcentagem }}</td>
+              <td>{{ infos.resultCasa.marcouPrimeiro.oddJusta }}</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Abriu placar e ganhou</td>
+              <td>{{ infos.resultCasa.marcouPrimeiroEVenceu.valor }}</td>
+              <td>{{ infos.resultCasa.marcouPrimeiroEVenceu.porcentagem }}</td>
+              <td>{{ infos.resultCasa.marcouPrimeiroEVenceu.oddJusta }}</td>
+            </tr>
+            <tr>
+              <th scope="row">4</th>
+              <td>Abriu placar e nao ganhou</td>
+              <td>{{ infos.resultCasa.marcouPrimeiroENaoVenceu.valor }}</td>
+              <td>{{ infos.resultCasa.marcouPrimeiroENaoVenceu.porcentagem }}</td>
+              <td>{{ infos.resultCasa.marcouPrimeiroENaoVenceu.oddJusta }}</td>
+            </tr>
+            <tr>
+              <th scope="row">5</th>
+              <td>Sofreu primeiro gol no HT</td>
+              <td>{{ infos.resultCasa.sofreuPrimeiroNoHT.valor }}</td>
+              <td>{{ infos.resultCasa.sofreuPrimeiroNoHT.porcentagem }}</td>
+              <td>{{ infos.resultCasa.sofreuPrimeiroNoHT.oddJusta }}</td>
+            </tr>
+            <tr>
+              <th scope="row">6</th>
+              <td>Sofreu primeiro gol no FT</td>
+              <td>{{ infos.resultCasa.sofreuPrimeiro.valor }}</td>
+              <td>{{ infos.resultCasa.sofreuPrimeiro.porcentagem }}</td>
+              <td>{{ infos.resultCasa.sofreuPrimeiro.oddJusta }}</td>
+            </tr>
+            <tr>
+              <th scope="row">7</th>
+              <td>Sofreu primeiro gol e ganhou</td>
+              <td>{{ infos.resultCasa.sofreuPrimeiroEVenceu.valor }}</td>
+              <td>{{ infos.resultCasa.sofreuPrimeiroEVenceu.porcentagem }}</td>
+              <td>{{ infos.resultCasa.sofreuPrimeiroEVenceu.oddJusta }}</td>
+            </tr>
+            <tr>
+              <th scope="row">8</th>
+              <td>Sofreu primeiro gol e nao ganhou</td>
+              <td>{{ infos.resultCasa.sofreuPrimeiroENaoVenceu.valor }}</td>
+              <td>{{ infos.resultCasa.sofreuPrimeiroENaoVenceu.porcentagem }}</td>
+              <td>{{ infos.resultCasa.sofreuPrimeiroENaoVenceu.oddJusta }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    
+      <div class="table-responsive col-md-6">
+        <h2>{{ infos.resultVisitante.equipe }} - {{ infos.resultVisitante.numJogos }} jogos - {{ infos.resultVisitante.forma }}</h2>
+        <table class="table table-striped">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Info</th>
+              <th scope="col">Valor</th>
+              <th scope="col">%</th>
+              <th scope="col">Odd Justa</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Abriu placar no HT</td>
+              <td>{{ infos.resultVisitante.marcouPrimeiroNoHT.valor }}</td>
+              <td>{{ infos.resultVisitante.marcouPrimeiroNoHT.porcentagem }}</td>
+              <td>{{ infos.resultVisitante.marcouPrimeiroNoHT.oddJusta }}</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Abriu placar no FT</td>
+              <td>{{ infos.resultVisitante.marcouPrimeiro.valor }}</td>
+              <td>{{ infos.resultVisitante.marcouPrimeiro.porcentagem }}</td>
+              <td>{{ infos.resultVisitante.marcouPrimeiro.oddJusta }}</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Abriu placar e ganhou</td>
+              <td>{{ infos.resultVisitante.marcouPrimeiroEVenceu.valor }}</td>
+              <td>{{ infos.resultVisitante.marcouPrimeiroEVenceu.porcentagem }}</td>
+              <td>{{ infos.resultVisitante.marcouPrimeiroEVenceu.oddJusta }}</td>
+            </tr>
+            <tr>
+              <th scope="row">4</th>
+              <td>Abriu placar e nao ganhou</td>
+              <td>{{ infos.resultVisitante.marcouPrimeiroENaoVenceu.valor }}</td>
+              <td>{{ infos.resultVisitante.marcouPrimeiroENaoVenceu.porcentagem }}</td>
+              <td>{{ infos.resultVisitante.marcouPrimeiroENaoVenceu.oddJusta }}</td>
+            </tr>
+            <tr>
+              <th scope="row">5</th>
+              <td>Sofreu primeiro gol no HT</td>
+              <td>{{ infos.resultVisitante.sofreuPrimeiroNoHT.valor }}</td>
+              <td>{{ infos.resultVisitante.sofreuPrimeiroNoHT.porcentagem }}</td>
+              <td>{{ infos.resultVisitante.sofreuPrimeiroNoHT.oddJusta }}</td>
+            </tr>
+            <tr>
+              <th scope="row">6</th>
+              <td>Sofreu primeiro gol no FT</td>
+              <td>{{ infos.resultVisitante.sofreuPrimeiro.valor }}</td>
+              <td>{{ infos.resultVisitante.sofreuPrimeiro.porcentagem }}</td>
+              <td>{{ infos.resultVisitante.sofreuPrimeiro.oddJusta }}</td>
+            </tr>
+            <tr>
+              <th scope="row">7</th>
+              <td>Sofreu primeiro gol e ganhou</td>
+              <td>{{ infos.resultVisitante.sofreuPrimeiroEVenceu.valor }}</td>
+              <td>{{ infos.resultVisitante.sofreuPrimeiroEVenceu.porcentagem }}</td>
+              <td>{{ infos.resultVisitante.sofreuPrimeiroEVenceu.oddJusta }}</td>
+            </tr>
+            <tr>
+              <th scope="row">8</th>
+              <td>Sofreu primeiro gol e nao ganhou</td>
+              <td>{{ infos.resultVisitante.sofreuPrimeiroENaoVenceu.valor }}</td>
+              <td>{{ infos.resultVisitante.sofreuPrimeiroENaoVenceu.porcentagem }}</td>
+              <td>{{ infos.resultVisitante.sofreuPrimeiroENaoVenceu.oddJusta }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="table-responsive col-md-6">
+        <h2>Momentos de Gols</h2>
+        <table class="table table-striped">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">*</th>
+              <th scope="col">Equipe</th>
+              <th scope="col">0-15</th>
+              <th scope="col">16-30</th>
+              <th scope="col">31-45</th>
+              <th scope="col">46-60</th>
+              <th scope="col">61-75</th>
+              <th scope="col">76-90</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>{{ infos.resultCasa.equipe }}</td>
+              <td>{{ infos.resultCasa.gols0a15 }}</td>
+              <td>{{ infos.resultCasa.gols16a30 }}</td>
+              <td>{{ infos.resultCasa.gols31a45 }}</td>
+              <td>{{ infos.resultCasa.gols46a60 }}</td>
+              <td>{{ infos.resultCasa.gols61a75 }}</td>
+              <td>{{ infos.resultCasa.gols76a90 }}</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>{{ infos.resultVisitante.equipe }}</td>
+              <td>{{ infos.resultVisitante.gols0a15 }}</td>
+              <td>{{ infos.resultVisitante.gols16a30 }}</td>
+              <td>{{ infos.resultVisitante.gols31a45 }}</td>
+              <td>{{ infos.resultVisitante.gols46a60 }}</td>
+              <td>{{ infos.resultVisitante.gols61a75 }}</td>
+              <td>{{ infos.resultVisitante.gols76a90 }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </body>
+</html>
