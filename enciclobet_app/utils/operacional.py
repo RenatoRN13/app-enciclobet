@@ -128,40 +128,38 @@ class Operacional:
         result = Infos.Result()
 
         result.equipe = equipe
-
-        print(marcouPrimeiroNoHT, 'SEM CACHORRADINHA')
-
+        
         result.marcouPrimeiroNoHT.valor = marcouPrimeiroNoHT
         result.marcouPrimeiroNoHT.porcentagem = marcouPrimeiroNoHT / numJogos
-        result.marcouPrimeiroNoHT.oddJusta = 1 / (marcouPrimeiroNoHT / numJogos )
+        result.marcouPrimeiroNoHT.oddJusta = 1 / (marcouPrimeiroNoHT / numJogos ) if marcouPrimeiroNoHT != 0 else 0
 
-        result.marcouPrimeiro = marcouPrimeiro
+        result.marcouPrimeiro.valor = marcouPrimeiro
         result.marcouPrimeiro.porcentagem = marcouPrimeiro / numJogos
-        result.marcouPrimeiro.oddJusta = 1 / (marcouPrimeiro / numJogos )
+        result.marcouPrimeiro.oddJusta = 1 / (marcouPrimeiro / numJogos ) if marcouPrimeiro != 0 else 0
 
-        result.marcouPrimeiroEVenceu = marcouPrimeiroEVenceu
+        result.marcouPrimeiroEVenceu.valor = marcouPrimeiroEVenceu
         result.marcouPrimeiroEVenceu.porcentagem = marcouPrimeiroEVenceu / numJogos
-        result.marcouPrimeiroEVenceu.oddJusta = 1 / (marcouPrimeiroEVenceu / numJogos )
+        result.marcouPrimeiroEVenceu.oddJusta = 1 / (marcouPrimeiroEVenceu / numJogos ) if marcouPrimeiroEVenceu != 0 else 0
 
-        result.marcouPrimeiroENaoVenceu = marcouPrimeiroENaoVenceu
+        result.marcouPrimeiroENaoVenceu.valor = marcouPrimeiroENaoVenceu
         result.marcouPrimeiroENaoVenceu.porcentagem = marcouPrimeiroENaoVenceu / numJogos
-        result.marcouPrimeiroENaoVenceu.oddJusta = 1 / (marcouPrimeiroENaoVenceu / numJogos )
+        result.marcouPrimeiroENaoVenceu.oddJusta = 1 / (marcouPrimeiroENaoVenceu / numJogos ) if marcouPrimeiroENaoVenceu != 0 else 0
 
-        result.sofreuPrimeiroNoHT = sofreuPrimeiroNoHT
+        result.sofreuPrimeiroNoHT.valor = sofreuPrimeiroNoHT
         result.sofreuPrimeiroNoHT.porcentagem = sofreuPrimeiroNoHT / numJogos
-        result.sofreuPrimeiroNoHT.oddJusta = 1 / (sofreuPrimeiroNoHT / numJogos )
+        result.sofreuPrimeiroNoHT.oddJusta = 1 / (sofreuPrimeiroNoHT / numJogos ) if sofreuPrimeiroNoHT != 0 else 0
 
-        result.sofreuPrimeiro = sofreuPrimeiro
+        result.sofreuPrimeiro.valor = sofreuPrimeiro
         result.sofreuPrimeiro.porcentagem = sofreuPrimeiro / numJogos
-        result.sofreuPrimeiro.oddJusta = 1 / (sofreuPrimeiro / numJogos )
+        result.sofreuPrimeiro.oddJusta = 1 / (sofreuPrimeiro / numJogos ) if sofreuPrimeiro != 0 else 0
 
-        result.sofreuPrimeiroEVenceu = sofreuPrimeiroEVenceu
+        result.sofreuPrimeiroEVenceu.valor = sofreuPrimeiroEVenceu
         result.sofreuPrimeiroEVenceu.porcentagem = sofreuPrimeiroEVenceu / numJogos
-        result.sofreuPrimeiroEVenceu.oddJusta = 1 / (sofreuPrimeiroEVenceu / numJogos )
+        result.sofreuPrimeiroEVenceu.oddJusta = 1 / (sofreuPrimeiroEVenceu / numJogos ) if sofreuPrimeiroEVenceu != 0 else 0
 
-        result.sofreuPrimeiroENaoVenceu = sofreuPrimeiroENaoVenceu
+        result.sofreuPrimeiroENaoVenceu.valor = sofreuPrimeiroENaoVenceu
         result.sofreuPrimeiroENaoVenceu.porcentagem = sofreuPrimeiroENaoVenceu / numJogos
-        result.sofreuPrimeiroENaoVenceu.oddJusta = 1 / (sofreuPrimeiroENaoVenceu / numJogos )
+        result.sofreuPrimeiroENaoVenceu.oddJusta = 1 / (sofreuPrimeiroENaoVenceu / numJogos ) if sofreuPrimeiroENaoVenceu != 0 else 0
 
         result.numJogos = numJogos
         result.forma = forma
