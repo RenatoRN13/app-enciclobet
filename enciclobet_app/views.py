@@ -1,5 +1,5 @@
 from django.shortcuts import render
-# from enciclobet_app.utils import popula_base
+from enciclobet_app.utils.popula_base import PopulaBase
 from enciclobet_app.utils.operacional import Operacional
 from enciclobet_app.utils import CONSTANTES
 from .models import Infos
@@ -20,6 +20,12 @@ def frequenciaMovimento(request):
     }
 
     return render(request, 'paginas/frequencia-movimento.html', constantes)
+
+def populaBase(request):
+    # PopulaBase.start()
+    return render(request, 'paginas/home.html')
+
+
 
 def equipe(request):
     casa = request.POST.get('casa')
