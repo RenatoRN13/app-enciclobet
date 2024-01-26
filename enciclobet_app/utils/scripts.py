@@ -1,15 +1,15 @@
 selectGolsByFiltros = """
 select 
     j.id_jogo, j.league, j.season, j.date, j.home, j.away, g.mando_campo, g.minuto, g.acrescimo, j.ft_goals_h, j.ft_goals_a
-from gols g 
-inner join jogos j on j.id_jogo = g.id_jogo 
-inner join odds o on o.id_jogo = g.id_jogo
+from jogos j 
+left join gols g on j.id_jogo = g.id_jogo 
+left join odds o on o.id_jogo = j.id_jogo
 where 1=1
 and o.ft_odds_a > {0} and o.ft_odds_a < {1}
 and (j.home ilike '%{2}%' or j.away ilike '%{3}%')
 and j.league ilike '%{4}%'
 and j.season like '%{5}%'
-order by g.id_jogo, g.minuto, g.acrescimo
+order by j.id_jogo, g.minuto, g.acrescimo
 """
 
 selectJogosByLeague = """

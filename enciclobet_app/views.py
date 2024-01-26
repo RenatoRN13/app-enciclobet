@@ -46,6 +46,4 @@ def equipe(request):
         'infos': Operacional.infoBackFavorito1T(filtros)
     }
 
-    print(infos['infos'].resultCasa)
-
     return render(request, 'paginas/info-equipes.html', infos)

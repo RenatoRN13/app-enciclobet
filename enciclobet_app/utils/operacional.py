@@ -24,15 +24,7 @@ class Operacional:
         return forma
 
     @staticmethod
-    def getPeriodosDeGol(mandoCampo, gols):
-        periodoDeGols = {
-            'gols0a15':  0,
-            'gols16a30': 0,
-            'gols31a45': 0,
-            'gols46a60': 0,
-            'gols61a75': 0,
-            'gols76a90': 0
-        }
+    def getPeriodosDeGol(mandoCampo, gols, periodoDeGols):
 
         for gol in gols:
             if(gol['mando_campo'] == mandoCampo):
@@ -100,7 +92,7 @@ class Operacional:
             flagSofreuPrimeiro = False
 
             forma = Operacional.atualizaFormaUltimos5Jogos(forma, casaOuVisitante, j)
-            periodoDeGols = Operacional.getPeriodosDeGol(mandoCampo, j['gols'])
+            periodoDeGols = Operacional.getPeriodosDeGol(mandoCampo, j['gols'], periodoDeGols)
 
 
             for gol in j['gols']:
@@ -126,51 +118,25 @@ class Operacional:
             elif flagMarcouPrimeiro:
                 sofreuPrimeiroENaoVenceu+=1
                 
-        result = Infos.Result()
-
-        result.equipe = equipe
-
-        result.marcouPrimeiroNoHT.valor = marcouPrimeiroNoHT
-        result.marcouPrimeiroNoHT.porcentagem = marcouPrimeiroNoHT / numJogos
-        result.marcouPrimeiroNoHT.oddJusta = 1 / (marcouPrimeiroNoHT / numJogos ) if marcouPrimeiroNoHT != 0 else 0
-
-        result.marcouPrimeiro.valor = marcouPrimeiro
-        result.marcouPrimeiro.porcentagem = marcouPrimeiro / numJogos
-        result.marcouPrimeiro.oddJusta = 1 / (marcouPrimeiro / numJogos ) if marcouPrimeiro != 0 else 0
-
-        result.marcouPrimeiroEVenceu.valor = marcouPrimeiroEVenceu
-        result.marcouPrimeiroEVenceu.porcentagem = marcouPrimeiroEVenceu / numJogos
-        result.marcouPrimeiroEVenceu.oddJusta = 1 / (marcouPrimeiroEVenceu / numJogos ) if marcouPrimeiroEVenceu != 0 else 0
-
-        result.marcouPrimeiroENaoVenceu.valor = marcouPrimeiroENaoVenceu
-        result.marcouPrimeiroENaoVenceu.porcentagem = marcouPrimeiroENaoVenceu / numJogos
-        result.marcouPrimeiroENaoVenceu.oddJusta = 1 / (marcouPrimeiroENaoVenceu / numJogos ) if marcouPrimeiroENaoVenceu != 0 else 0
-
-        result.sofreuPrimeiroNoHT.valor = sofreuPrimeiroNoHT
-        result.sofreuPrimeiroNoHT.porcentagem = sofreuPrimeiroNoHT / numJogos
-        result.sofreuPrimeiroNoHT.oddJusta = 1 / (sofreuPrimeiroNoHT / numJogos ) if sofreuPrimeiroNoHT != 0 else 0
-
-        result.sofreuPrimeiro.valor = sofreuPrimeiro
-        result.sofreuPrimeiro.porcentagem = sofreuPrimeiro / numJogos
-        result.sofreuPrimeiro.oddJusta = 1 / (sofreuPrimeiro / numJogos ) if sofreuPrimeiro != 0 else 0
-
-        result.sofreuPrimeiroEVenceu.valor = sofreuPrimeiroEVenceu
-        result.sofreuPrimeiroEVenceu.porcentagem = sofreuPrimeiroEVenceu / numJogos
-        result.sofreuPrimeiroEVenceu.oddJusta = 1 / (sofreuPrimeiroEVenceu / numJogos ) if sofreuPrimeiroEVenceu != 0 else 0
-
-        result.sofreuPrimeiroENaoVenceu.valor = sofreuPrimeiroENaoVenceu
-        result.sofreuPrimeiroENaoVenceu.porcentagem = sofreuPrimeiroENaoVenceu / numJogos
-        result.sofreuPrimeiroENaoVenceu.oddJusta = 1 / (sofreuPrimeiroENaoVenceu / numJogos ) if sofreuPrimeiroENaoVenceu != 0 else 0
-
-        result.numJogos = numJogos
-        result.forma = forma
-
-        result.gols0a15 = periodoDeGols['gols0a15']
-        result.gols16a30 = periodoDeGols['gols16a30']
-        result.gols31a45 = periodoDeGols['gols31a45']
-        result.gols46a60 = periodoDeGols['gols46a60']
-        result.gols61a75 = periodoDeGols['gols61a75']
-        result.gols76a90 = periodoDeGols['gols76a90']
+        result = Infos.Result(
+            equipe,
+            marcouPrimeiroNoHT,
+            marcouPrimeiro,
+            marcouPrimeiroEVenceu,
+            marcouPrimeiroENaoVenceu,
+            sofreuPrimeiroNoHT,
+            sofreuPrimeiro,
+            sofreuPrimeiroEVenceu,
+            sofreuPrimeiroENaoVenceu,
+            numJogos,
+            forma,
+            periodoDeGols['gols0a15'],
+            periodoDeGols['gols16a30'],
+            periodoDeGols['gols31a45'],
+            periodoDeGols['gols46a60'],
+            periodoDeGols['gols61a75'],
+            periodoDeGols['gols76a90'],
+        )
 
         return result
 
@@ -235,12 +201,16 @@ class Operacional:
                                                         })
 
         infoResult = Infos()
+
+        for j in jogos:
+            print(j['casa'], j['golsCasa'], ' x ', j['golsVisitante'], j['visitante'])
+
         if filtros['home'] != '':
             infoResult.resultCasa = Operacional.getInfoTime(filtros['home'], 'casa', jogos) # vasco, casa, listaJogos
         if filtros['away'] != '':
             infoResult.resultVisitante = Operacional.getInfoTime(filtros['away'], 'visitante', jogos) # vasco, visitante, listaJogos
 
-        # print(infoResult.resultVisitante)
+        print(infoResult.resultVisitante.equipe)
         return infoResult
 
         
